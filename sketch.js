@@ -10,6 +10,19 @@ const platforms = [
 
 const GRAVITY = 0.5;
 
+const TOP_PLATFORM = platforms[4]; // high-left: x:100, y:130, w:140
+
+const player = {
+  w: 32,
+  h: 40,
+  x: TOP_PLATFORM.x + (TOP_PLATFORM.w - 32) / 2,
+  y: TOP_PLATFORM.y - 40,
+  vx: 0,
+  vy: 0,
+  facingRight: true,
+  onGround: false,
+};
+
 function applyGravity(entity) {
   entity.vy += GRAVITY;
   entity.y += entity.vy;

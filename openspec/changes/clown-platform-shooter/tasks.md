@@ -12,7 +12,7 @@
 
 ## 3. Player Controls
 
-- [ ] 3.1 Define a `player` object with `{x, y, vx, vy, w, h, facingRight}` and place it on the top platform at startup
+- [x] 3.1 Define a `player` object with `{x, y, vx, vy, w, h, facingRight}` and place it on the top platform at startup
 - [ ] 3.2 In `draw()`, handle LEFT/RIGHT (or A/D) keys to set `player.vx`; reset `player.vx` to 0 when no key held
 - [ ] 3.3 Handle UP/W for jump: apply upward `vy` only when `player.onGround` is true
 - [ ] 3.4 Update player position each frame, apply gravity and platform collision; set `player.onGround` accordingly
