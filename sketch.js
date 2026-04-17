@@ -214,6 +214,11 @@ function drawPlayer() {
 }
 
 function keyPressed() {
+  // Unlock browser audio on first keypress (required by browser autoplay policy)
+  if (getAudioContext().state !== "running") {
+    getAudioContext().resume();
+  }
+
   // UP or W — jump only when standing on a platform
   if ((keyCode === UP_ARROW || keyCode === 87) && player.onGround) {
     player.vy = JUMP_FORCE;
