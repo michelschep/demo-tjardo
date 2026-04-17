@@ -299,10 +299,37 @@ function drawPlayer() {
   pop();
 }
 
+function resetGame() {
+  gameState = "playing";
+  score = 0;
+
+  bullets.length = 0;
+
+  enemies.length = 0;
+  enemies.push(
+    { x: 200, y: platforms[0].y - ENEMY_H, vx:  ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 0, onGround: false },
+    { x: 100, y: platforms[1].y - ENEMY_H, vx:  ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 1, onGround: false },
+    { x: 580, y: platforms[2].y - ENEMY_H, vx: -ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 2, onGround: false },
+    { x: 310, y: platforms[3].y - ENEMY_H, vx:  ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 3, onGround: false }
+  );
+
+  player.x = TOP_PLATFORM.x + (TOP_PLATFORM.w - 32) / 2;
+  player.y = TOP_PLATFORM.y - 40;
+  player.vx = 0;
+  player.vy = 0;
+  player.facingRight = true;
+  player.onGround = false;
+}
+
 function keyPressed() {
   // Unlock browser audio on first keypress (required by browser autoplay policy)
   if (getAudioContext().state !== "running") {
     getAudioContext().resume();
+  }
+
+  // R — restart from game over or win screen
+  if (keyCode === 82 && (gameState === "dead" || gameState === "win")) {
+    resetGame();
   }
 
   // UP or W — jump only when standing on a platform
