@@ -6,6 +6,8 @@ let shootOsc;
 let shootEnv;
 let laughOsc;
 let laughEnv;
+let jumpOsc;
+let jumpEnv;
 
 const platforms = [
   { x: 0,   y: 460, w: 800, h: 20 },  // ground
@@ -88,6 +90,16 @@ function setup() {
   laughEnv = new p5.Envelope();
   laughEnv.setADSR(0.01, 0.5, 0.0, 0.05);
   laughEnv.setRange(0.45, 0);
+
+  // Jump sound — short ascending sine-wave tone
+  jumpOsc = new p5.Oscillator('sine');
+  jumpOsc.freq(300);
+  jumpOsc.amp(0);
+  jumpOsc.start();
+
+  jumpEnv = new p5.Envelope();
+  jumpEnv.setADSR(0.005, 0.15, 0.0, 0.02);
+  jumpEnv.setRange(0.35, 0);
 }
 
 function playShootSound() {
@@ -100,6 +112,13 @@ function playCreepyLaugh() {
   laughOsc.freq(600, 0, 0);   // snap to 600 Hz immediately
   laughOsc.freq(100, 0.5, 0); // glide down to 100 Hz over 0.5 s
   laughEnv.play(laughOsc);
+}
+
+function playJumpSound() {
+  if (getAudioContext().state !== 'running') return;
+  jumpOsc.freq(300, 0, 0);    // snap to 300 Hz immediately
+  jumpOsc.freq(700, 0.15, 0); // glide up to 700 Hz over 0.15 s
+  jumpEnv.play(jumpOsc);
 }
 
 function draw() {

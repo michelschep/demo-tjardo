@@ -41,7 +41,7 @@
 - [x] 6.1 Add `getAudioContext().resume()` on first keypress to unlock browser audio
 - [x] 6.2 Implement `playShootSound()` — short irritating high-pitched oscillator beep using `p5.Oscillator` + `p5.Env`
 - [x] 6.3 Implement `playCreepyLaugh()` — descending frequency glide (e.g., 600 Hz → 100 Hz over 0.5 s) triggered on enemy kill
-- [ ] 6.4 Implement `playJumpSound()` — short ascending tone on player jump
+- [x] 6.4 Implement `playJumpSound()` — short ascending tone on player jump
 - [ ] 6.5 Wire up all three sounds to their respective game events (shoot, enemy kill, jump)
 
 ## 7. Game States
