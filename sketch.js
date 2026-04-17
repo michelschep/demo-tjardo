@@ -144,6 +144,13 @@ function draw() {
   }
 
   drawPlayer();
+
+  // Score display
+  fill(255);
+  noStroke();
+  textSize(18);
+  textAlign(LEFT, TOP);
+  text(`Score: ${score}`, 12, 10);
 }
 
 function drawEnemy(e) {
