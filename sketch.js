@@ -10,6 +10,7 @@ const platforms = [
 
 const GRAVITY = 0.5;
 const PLAYER_SPEED = 4;
+const JUMP_FORCE = -10;
 
 const TOP_PLATFORM = platforms[4]; // high-left: x:100, y:130, w:140
 
@@ -67,5 +68,12 @@ function draw() {
   noStroke();
   for (let p of platforms) {
     rect(p.x, p.y, p.w, p.h);
+  }
+}
+
+function keyPressed() {
+  // UP or W — jump only when standing on a platform
+  if ((keyCode === UP_ARROW || keyCode === 87) && player.onGround) {
+    player.vy = JUMP_FORCE;
   }
 }
