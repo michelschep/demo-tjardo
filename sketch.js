@@ -9,6 +9,7 @@ const platforms = [
 ];
 
 const GRAVITY = 0.5;
+const PLAYER_SPEED = 4;
 
 const TOP_PLATFORM = platforms[4]; // high-left: x:100, y:130, w:140
 
@@ -49,6 +50,18 @@ function setup() {
 
 function draw() {
   background(30);
+
+  // Horizontal movement
+  player.vx = 0;
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) { // LEFT or A
+    player.vx = -PLAYER_SPEED;
+    player.facingRight = false;
+  }
+  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) { // RIGHT or D
+    player.vx = PLAYER_SPEED;
+    player.facingRight = true;
+  }
+  player.x += player.vx;
 
   fill(80, 160, 80);
   noStroke();
