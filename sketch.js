@@ -63,6 +63,7 @@ function draw() {
     player.facingRight = true;
   }
   player.x += player.vx;
+  player.x = constrain(player.x, 0, width - player.w);
 
   applyGravity(player);
   collidePlatforms(player, platforms);
