@@ -75,6 +75,13 @@ function draw() {
     if (player.y > height) {
       gameState = "dead";
     }
+
+    for (let i = bullets.length - 1; i >= 0; i--) {
+      bullets[i].x += bullets[i].vx;
+      if (bullets[i].x < 0 || bullets[i].x > width) {
+        bullets.splice(i, 1);
+      }
+    }
   }
 
   fill(80, 160, 80);
