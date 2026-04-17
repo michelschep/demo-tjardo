@@ -64,6 +64,9 @@ function draw() {
   }
   player.x += player.vx;
 
+  applyGravity(player);
+  collidePlatforms(player, platforms);
+
   fill(80, 160, 80);
   noStroke();
   for (let p of platforms) {
