@@ -52,21 +52,27 @@ function setup() {
 function draw() {
   background(30);
 
-  // Horizontal movement
-  player.vx = 0;
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) { // LEFT or A
-    player.vx = -PLAYER_SPEED;
-    player.facingRight = false;
-  }
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) { // RIGHT or D
-    player.vx = PLAYER_SPEED;
-    player.facingRight = true;
-  }
-  player.x += player.vx;
-  player.x = constrain(player.x, 0, width - player.w);
+  if (gameState === "playing") {
+    // Horizontal movement
+    player.vx = 0;
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) { // LEFT or A
+      player.vx = -PLAYER_SPEED;
+      player.facingRight = false;
+    }
+    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) { // RIGHT or D
+      player.vx = PLAYER_SPEED;
+      player.facingRight = true;
+    }
+    player.x += player.vx;
+    player.x = constrain(player.x, 0, width - player.w);
 
-  applyGravity(player);
-  collidePlatforms(player, platforms);
+    applyGravity(player);
+    collidePlatforms(player, platforms);
+
+    if (player.y > height) {
+      gameState = "dead";
+    }
+  }
 
   fill(80, 160, 80);
   noStroke();

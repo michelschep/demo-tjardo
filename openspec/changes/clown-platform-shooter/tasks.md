@@ -16,8 +16,8 @@
 - [x] 3.2 In `draw()`, handle LEFT/RIGHT (or A/D) keys to set `player.vx`; reset `player.vx` to 0 when no key held
 - [x] 3.3 Handle UP/W for jump: apply upward `vy` only when `player.onGround` is true
 - [x] 3.4 Update player position each frame, apply gravity and platform collision; set `player.onGround` accordingly
-- [ ] 3.5 Clamp player to canvas horizontal bounds
-- [ ] 3.6 Detect player falling below canvas height → set `gameState = "dead"`
+- [x] 3.5 Clamp player to canvas horizontal bounds
+- [x] 3.6 Detect player falling below canvas height → set `gameState = "dead"`
 - [ ] 3.7 Draw the player as a clown head (circle body, triangle hat, red nose dot, ruffled collar arcs)
 
 ## 4. Shooting Mechanic
