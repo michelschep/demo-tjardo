@@ -1,6 +1,10 @@
 let gameState = "playing";
 let score = 0;
 
+// --- Audio ---
+let shootOsc;
+let shootEnv;
+
 const platforms = [
   { x: 0,   y: 460, w: 800, h: 20 },  // ground
   { x: 80,  y: 340, w: 160, h: 16 },  // low-left
@@ -62,6 +66,21 @@ function collidePlatforms(entity, platforms) {
 function setup() {
   let canvas = createCanvas(800, 500);
   canvas.parent("canvas-container");
+
+  // Shoot sound — short irritating high-pitched square-wave beep
+  shootOsc = new p5.Oscillator('square');
+  shootOsc.freq(1800);
+  shootOsc.amp(0);
+  shootOsc.start();
+
+  shootEnv = new p5.Envelope();
+  shootEnv.setADSR(0.001, 0.08, 0.0, 0.01);
+  shootEnv.setRange(0.4, 0);
+}
+
+function playShootSound() {
+  if (getAudioContext().state !== 'running') return;
+  shootEnv.play(shootOsc);
 }
 
 function draw() {
@@ -232,5 +251,6 @@ function keyPressed() {
       y: player.y + player.h / 2,
       vx: bvx,
     });
+    playShootSound();
   }
 }
