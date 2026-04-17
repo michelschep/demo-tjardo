@@ -15,6 +15,17 @@ const BULLET_SPEED = 8;
 
 const bullets = [];
 
+const ENEMY_W = 28;
+const ENEMY_H = 36;
+const ENEMY_SPEED = 1.5;
+
+const enemies = [
+  { x: 200, y: platforms[0].y - ENEMY_H, vx: ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 0, onGround: false },
+  { x: 100, y: platforms[1].y - ENEMY_H, vx: ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 1, onGround: false },
+  { x: 580, y: platforms[2].y - ENEMY_H, vx: -ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 2, onGround: false },
+  { x: 310, y: platforms[3].y - ENEMY_H, vx: ENEMY_SPEED, vy: 0, w: ENEMY_W, h: ENEMY_H, platformIndex: 3, onGround: false },
+];
+
 const TOP_PLATFORM = platforms[4]; // high-left: x:100, y:130, w:140
 
 const player = {
