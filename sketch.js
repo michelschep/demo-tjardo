@@ -15,6 +15,20 @@ function applyGravity(entity) {
   entity.y += entity.vy;
 }
 
+function collidePlatforms(entity, platforms) {
+  entity.onGround = false;
+  for (let p of platforms) {
+    let overlapX = entity.x < p.x + p.w && entity.x + entity.w > p.x;
+    let entityBottom = entity.y + entity.h;
+    let prevEntityBottom = entityBottom - entity.vy;
+    if (overlapX && entity.vy >= 0 && prevEntityBottom <= p.y && entityBottom >= p.y) {
+      entity.y = p.y - entity.h;
+      entity.vy = 0;
+      entity.onGround = true;
+    }
+  }
+}
+
 function setup() {
   let canvas = createCanvas(800, 500);
   canvas.parent("canvas-container");
