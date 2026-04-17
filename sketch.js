@@ -122,7 +122,39 @@ function draw() {
     circle(b.x, b.y, 8);
   }
 
+  for (let e of enemies) {
+    drawEnemy(e);
+  }
+
   drawPlayer();
+}
+
+function drawEnemy(e) {
+  let cx = e.x + e.w / 2;
+  let headCY = e.y + 13;
+
+  push();
+  noStroke();
+
+  // Ruffled collar — orange/red ruffle
+  fill(255, 100, 0);
+  arc(cx - 8,  e.y + 28, 16, 12, PI, TWO_PI, CHORD);
+  arc(cx + 1,  e.y + 28, 16, 12, PI, TWO_PI, CHORD);
+  arc(cx + 8,  e.y + 28, 16, 12, PI, TWO_PI, CHORD);
+
+  // Head circle
+  fill(255, 220, 180);
+  circle(cx, headCY, 24);
+
+  // Hat (green triangle — distinct from player's purple)
+  fill(30, 160, 30);
+  triangle(cx, e.y - 2, cx - 9, e.y + 13, cx + 9, e.y + 13);
+
+  // Red nose — bigger than the player's
+  fill(255, 30, 30);
+  circle(cx, headCY, 11);
+
+  pop();
 }
 
 function drawPlayer() {

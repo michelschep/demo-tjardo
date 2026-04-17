@@ -31,7 +31,7 @@
 - [x] 5.1 Define an `enemies` array with 3–5 clown enemy objects placed on platforms (`{x, y, vx, vy, w, h, platformIndex}`)
 - [x] 5.2 Each frame update enemy position: apply horizontal patrol movement, flip direction at platform edges
 - [x] 5.3 Apply gravity and platform collision to enemies
-- [ ] 5.4 Draw each enemy as a clown head (distinct from player — different hat colour, bigger red nose)
+- [x] 5.4 Draw each enemy as a clown head (distinct from player — different hat colour, bigger red nose)
 - [ ] 5.5 Check bullet–enemy AABB collision: remove both bullet and enemy, increment `score`
 - [ ] 5.6 Display `score` in the top-left corner of the canvas
 - [ ] 5.7 When `enemies` array is empty, set `gameState = "win"`
