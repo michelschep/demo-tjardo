@@ -93,6 +93,18 @@ function draw() {
         bullets.splice(i, 1);
       }
     }
+
+    for (let e of enemies) {
+      let p = platforms[e.platformIndex];
+      e.x += e.vx;
+      if (e.x <= p.x) {
+        e.x = p.x;
+        e.vx = Math.abs(e.vx);
+      } else if (e.x + e.w >= p.x + p.w) {
+        e.x = p.x + p.w - e.w;
+        e.vx = -Math.abs(e.vx);
+      }
+    }
   }
 
   fill(80, 160, 80);
