@@ -1,4 +1,5 @@
 let gameState = "playing";
+let score = 0;
 
 const platforms = [
   { x: 0,   y: 460, w: 800, h: 20 },  // ground
@@ -106,6 +107,22 @@ function draw() {
       }
       applyGravity(e);
       collidePlatforms(e, platforms);
+    }
+
+    // Bullet–enemy AABB collision
+    for (let bi = bullets.length - 1; bi >= 0; bi--) {
+      let b = bullets[bi];
+      for (let ei = enemies.length - 1; ei >= 0; ei--) {
+        let e = enemies[ei];
+        let hit = b.x + 4 > e.x && b.x - 4 < e.x + e.w &&
+                  b.y + 4 > e.y && b.y - 4 < e.y + e.h;
+        if (hit) {
+          bullets.splice(bi, 1);
+          enemies.splice(ei, 1);
+          score++;
+          break;
+        }
+      }
     }
   }
 
