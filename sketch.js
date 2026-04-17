@@ -177,6 +177,7 @@ function draw() {
           bullets.splice(bi, 1);
           enemies.splice(ei, 1);
           score++;
+          playCreepyLaugh();
           break;
         }
       }
@@ -279,6 +280,7 @@ function keyPressed() {
   // UP or W — jump only when standing on a platform
   if ((keyCode === UP_ARROW || keyCode === 87) && player.onGround) {
     player.vy = JUMP_FORCE;
+    playJumpSound();
   }
 
   // SPACE — shoot bullet in facing direction
