@@ -79,6 +79,36 @@ function draw() {
   for (let p of platforms) {
     rect(p.x, p.y, p.w, p.h);
   }
+
+  drawPlayer();
+}
+
+function drawPlayer() {
+  let cx = player.x + player.w / 2;
+  let headCY = player.y + 14;
+
+  push();
+  noStroke();
+
+  // Ruffled collar — three arc bumps; head will cover their tops
+  fill(255, 50, 150);
+  arc(cx - 9,  player.y + 30, 18, 14, PI, TWO_PI, CHORD);
+  arc(cx + 1,  player.y + 30, 18, 14, PI, TWO_PI, CHORD);
+  arc(cx + 9,  player.y + 30, 18, 14, PI, TWO_PI, CHORD);
+
+  // Head circle
+  fill(255, 220, 180);
+  circle(cx, headCY, 26);
+
+  // Hat (purple triangle on top of head)
+  fill(180, 50, 220);
+  triangle(cx, player.y - 2, cx - 10, player.y + 14, cx + 10, player.y + 14);
+
+  // Red nose dot
+  fill(255, 40, 40);
+  circle(cx, headCY, 8);
+
+  pop();
 }
 
 function keyPressed() {

@@ -18,7 +18,7 @@
 - [x] 3.4 Update player position each frame, apply gravity and platform collision; set `player.onGround` accordingly
 - [x] 3.5 Clamp player to canvas horizontal bounds
 - [x] 3.6 Detect player falling below canvas height → set `gameState = "dead"`
-- [ ] 3.7 Draw the player as a clown head (circle body, triangle hat, red nose dot, ruffled collar arcs)
+- [x] 3.7 Draw the player as a clown head (circle body, triangle hat, red nose dot, ruffled collar arcs)
 
 ## 4. Shooting Mechanic
 
