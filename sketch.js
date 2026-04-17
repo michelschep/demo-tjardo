@@ -8,6 +8,13 @@ const platforms = [
   { x: 100, y: 130, w: 140, h: 16 },  // high-left
 ];
 
+const GRAVITY = 0.5;
+
+function applyGravity(entity) {
+  entity.vy += GRAVITY;
+  entity.y += entity.vy;
+}
+
 function setup() {
   let canvas = createCanvas(800, 500);
   canvas.parent("canvas-container");
