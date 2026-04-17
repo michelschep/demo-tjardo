@@ -124,6 +124,10 @@ function draw() {
         }
       }
     }
+
+    if (enemies.length === 0) {
+      gameState = "win";
+    }
   }
 
   fill(80, 160, 80);

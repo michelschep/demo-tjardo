@@ -34,7 +34,7 @@
 - [x] 5.4 Draw each enemy as a clown head (distinct from player — different hat colour, bigger red nose)
 - [x] 5.5 Check bullet–enemy AABB collision: remove both bullet and enemy, increment `score`
 - [x] 5.6 Display `score` in the top-left corner of the canvas
-- [ ] 5.7 When `enemies` array is empty, set `gameState = "win"`
+- [x] 5.7 When `enemies` array is empty, set `gameState = "win"`
 
 ## 6. Clown Audio
 
