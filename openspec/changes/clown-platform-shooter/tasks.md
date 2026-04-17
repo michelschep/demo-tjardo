@@ -1,7 +1,7 @@
 ## 1. Project Scaffold
 
 - [x] 1.1 Create `index.html` with p5.js and p5.sound CDN links, a canvas container, and a `<script src="sketch.js">` tag
-- [ ] 1.2 Create `sketch.js` with empty `setup()` and `draw()` stubs; verify the canvas opens in the browser without errors
+- [x] 1.2 Create `sketch.js` with empty `setup()` and `draw()` stubs; verify the canvas opens in the browser without errors
 
 ## 2. Platform World
 
