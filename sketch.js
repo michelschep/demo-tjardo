@@ -15,4 +15,10 @@ function setup() {
 
 function draw() {
   background(30);
+
+  fill(80, 160, 80);
+  noStroke();
+  for (let p of platforms) {
+    rect(p.x, p.y, p.w, p.h);
+  }
 }

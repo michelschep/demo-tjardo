@@ -6,7 +6,7 @@
 ## 2. Platform World
 
 - [x] 2.1 Define a `platforms` array with at least 4 hand-coded platform objects (`{x, y, w, h}`)
-- [ ] 2.2 Draw all platforms in `draw()` using `rect()`
+- [x] 2.2 Draw all platforms in `draw()` using `rect()`
 - [ ] 2.3 Implement `applyGravity(entity)` helper that adds a vertical velocity to any entity each frame
 - [ ] 2.4 Implement `collidePlatforms(entity, platforms)` helper that stops an entity on the top surface of any platform it overlaps
 
