@@ -4,6 +4,8 @@ let score = 0;
 // --- Audio ---
 let shootOsc;
 let shootEnv;
+let laughOsc;
+let laughEnv;
 
 const platforms = [
   { x: 0,   y: 460, w: 800, h: 20 },  // ground
@@ -76,11 +78,28 @@ function setup() {
   shootEnv = new p5.Envelope();
   shootEnv.setADSR(0.001, 0.08, 0.0, 0.01);
   shootEnv.setRange(0.4, 0);
+
+  // Creepy laugh sound — sawtooth for a harsh descending glide
+  laughOsc = new p5.Oscillator('sawtooth');
+  laughOsc.freq(600);
+  laughOsc.amp(0);
+  laughOsc.start();
+
+  laughEnv = new p5.Envelope();
+  laughEnv.setADSR(0.01, 0.5, 0.0, 0.05);
+  laughEnv.setRange(0.45, 0);
 }
 
 function playShootSound() {
   if (getAudioContext().state !== 'running') return;
   shootEnv.play(shootOsc);
+}
+
+function playCreepyLaugh() {
+  if (getAudioContext().state !== 'running') return;
+  laughOsc.freq(600, 0, 0);   // snap to 600 Hz immediately
+  laughOsc.freq(100, 0.5, 0); // glide down to 100 Hz over 0.5 s
+  laughEnv.play(laughOsc);
 }
 
 function draw() {
