@@ -227,6 +227,20 @@ function draw() {
     textSize(24);
     text("Press R to restart", width / 2, height / 2 + 36);
   }
+
+  // You Win overlay
+  if (gameState === "win") {
+    fill(0, 0, 0, 160);
+    noStroke();
+    rect(0, 0, width, height);
+    fill(80, 220, 80);
+    textSize(52);
+    textAlign(CENTER, CENTER);
+    text("YOU WIN 🎉", width / 2, height / 2 - 30);
+    fill(220);
+    textSize(24);
+    text("Press R to restart", width / 2, height / 2 + 36);
+  }
 }
 
 function drawEnemy(e) {
