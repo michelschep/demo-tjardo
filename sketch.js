@@ -104,6 +104,8 @@ function draw() {
         e.x = p.x + p.w - e.w;
         e.vx = -Math.abs(e.vx);
       }
+      applyGravity(e);
+      collidePlatforms(e, platforms);
     }
   }
 
