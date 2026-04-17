@@ -46,6 +46,6 @@
 
 ## 7. Game States
 
-- [ ] 7.1 Show "GAME OVER 🤡 Press R to restart" overlay when `gameState === "dead"`
+- [x] 7.1 Show "GAME OVER 🤡 Press R to restart" overlay when `gameState === "dead"`
 - [ ] 7.2 Show "YOU WIN 🎉 Press R to restart" overlay when `gameState === "win"`
 - [ ] 7.3 Handle R keypress to reset all game state and restart

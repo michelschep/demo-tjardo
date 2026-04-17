@@ -213,6 +213,20 @@ function draw() {
   textSize(18);
   textAlign(LEFT, TOP);
   text(`Score: ${score}`, 12, 10);
+
+  // Game Over overlay
+  if (gameState === "dead") {
+    fill(0, 0, 0, 160);
+    noStroke();
+    rect(0, 0, width, height);
+    fill(255, 60, 60);
+    textSize(52);
+    textAlign(CENTER, CENTER);
+    text("GAME OVER 🤡", width / 2, height / 2 - 30);
+    fill(220);
+    textSize(24);
+    text("Press R to restart", width / 2, height / 2 + 36);
+  }
 }
 
 function drawEnemy(e) {
