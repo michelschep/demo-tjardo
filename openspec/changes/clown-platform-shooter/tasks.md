@@ -22,7 +22,7 @@
 
 ## 4. Shooting Mechanic
 
-- [ ] 4.1 Define a `bullets` array; on SPACE keypress spawn a bullet `{x, y, vx}` at the player's position travelling in `player.facingRight` direction
+- [x] 4.1 Define a `bullets` array; on SPACE keypress spawn a bullet `{x, y, vx}` at the player's position travelling in `player.facingRight` direction
 - [ ] 4.2 Each frame move all bullets by their `vx`; remove bullets that leave the canvas
 - [ ] 4.3 Draw bullets as small bright-coloured circles
 

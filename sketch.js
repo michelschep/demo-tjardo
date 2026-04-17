@@ -11,6 +11,9 @@ const platforms = [
 const GRAVITY = 0.5;
 const PLAYER_SPEED = 4;
 const JUMP_FORCE = -10;
+const BULLET_SPEED = 8;
+
+const bullets = [];
 
 const TOP_PLATFORM = platforms[4]; // high-left: x:100, y:130, w:140
 
@@ -115,5 +118,15 @@ function keyPressed() {
   // UP or W — jump only when standing on a platform
   if ((keyCode === UP_ARROW || keyCode === 87) && player.onGround) {
     player.vy = JUMP_FORCE;
+  }
+
+  // SPACE — shoot bullet in facing direction
+  if (keyCode === 32 && gameState === "playing") {
+    let bvx = player.facingRight ? BULLET_SPEED : -BULLET_SPEED;
+    bullets.push({
+      x: player.x + player.w / 2,
+      y: player.y + player.h / 2,
+      vx: bvx,
+    });
   }
 }
