@@ -90,6 +90,13 @@ function draw() {
     rect(p.x, p.y, p.w, p.h);
   }
 
+  // Draw bullets as small bright-coloured circles
+  noStroke();
+  fill(255, 220, 0);
+  for (let b of bullets) {
+    circle(b.x, b.y, 8);
+  }
+
   drawPlayer();
 }
 
